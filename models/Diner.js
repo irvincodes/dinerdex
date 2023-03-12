@@ -2,6 +2,31 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+const reviewSchema = new Schema({
+  rating: {
+    type: Number,
+    enum: [1, 2, 3, 4, 5],
+    default: 1,
+    required: true,
+  },
+  dateVisited: {
+    type: Date,
+  },
+  dinerNo: {
+    type: Number,
+    default: 2,
+    required: true,
+  },
+  billTotal: {
+    type: Number,
+    required: true,
+  },
+  comments: {
+    type: String,
+    required: true,
+  },
+});
+
 const dinerSchema = new Schema(
   {
     name: {
@@ -19,7 +44,7 @@ const dinerSchema = new Schema(
         "Fastfood Restaurant",
         "Bar/Pub",
         "Casual Eatery",
-        "Takeaway Stand",
+        "Takeaway Kiosk",
         "Non-physical",
       ],
       default: "Cafe",
@@ -48,8 +73,8 @@ const dinerSchema = new Schema(
     },
     halal: {
       type: String,
-      enum: ["Unsure", "Yes", "No"],
-      default: "Unsure",
+      enum: ["Unconfirmed", "Yes", "No"],
+      default: "Unconfirmed",
     },
     pricingLevel: {
       type: String,
@@ -68,7 +93,7 @@ const dinerSchema = new Schema(
       required: true,
     },
     contactNo: {
-      type: Number,
+      type: String,
     },
     operatingDays: {
       type: String,
@@ -82,30 +107,5 @@ const dinerSchema = new Schema(
     timestamps: true,
   }
 );
-
-const reviewSchema = new Schema({
-  rating: {
-    type: Number,
-    enum: [1, 2, 3, 4, 5],
-    default: 1,
-    required: true,
-  },
-  dateVisited: {
-    type: Date,
-  },
-  dinerNo: {
-    type: Number,
-    default: 2,
-    required: true,
-  },
-  billTotal: {
-    type: Number,
-    required: true,
-  },
-  comments: {
-    type: String,
-    required: true,
-  },
-});
 
 module.exports = mongoose.model("Diner", dinerSchema);

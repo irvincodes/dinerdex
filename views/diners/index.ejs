@@ -9,9 +9,36 @@
   </head>
   <body>
         <nav>
-    <a href="/diners/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>NEW ENTRY</a>
-    <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES</a>
+    <a href="/diners/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>NEW ENTRY </a>
+    <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES </a>
   </nav>
-  <main></main>
+  <main>
+     <h1><%= title %></h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Establishment Type</th>
+            <th>Cuisine Type</th>
+            <th>Region</th>
+            <th>Pricing Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% diners.forEach((d) => { %>
+            <tr>
+              <td><%= d.name %></td>
+              <td><%= d.establishmentType %></td>
+              <td><%= d.cuisineType %></td>
+              <td><%= d.region %></td>
+              <td><%= d.pricingLevel %></td>
+
+            </tr>
+
+          <% }) %>
+
+        </tbody>
+      </table>
+  </main>
   </body>
 </html>
