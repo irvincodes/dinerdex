@@ -66,6 +66,7 @@ const dinerSchema = new Schema(
         "Mexican",
         "Spanish",
         "Mediterranean",
+        "Other Western",
         "Others",
       ],
       default: "Japanese",

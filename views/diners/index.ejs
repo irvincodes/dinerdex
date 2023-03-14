@@ -32,6 +32,12 @@
               <td><%= d.cuisineType %></td>
               <td><%= d.region %></td>
               <td><%= d.pricingLevel %></td>
+              <td><a href="/diners/<%= d._id %>">DETAILS</a></td>
+              <td>
+              <form action="/diners/<%= d._id %>/?_method=DELETE" method="POST">
+                <button type="submit">DELETE</button>
+              </form>
+              </td>
 
             </tr>
 

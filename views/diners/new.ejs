@@ -39,7 +39,7 @@
       <label>
         Cuisine Type:</label>
         <select name="cuisineType">
-          <% cuisineTypeEnum=["Japanese", "Korean", "Italian", "French", "Malay", "Chinese", "Indian", "Thai", "Vietnamese", "American","Mexican", "Spanish", "Mediterranean", "Others",]; %>
+          <% cuisineTypeEnum=["Japanese", "Korean", "Italian", "French", "Malay", "Chinese", "Indian", "Thai", "Vietnamese", "American","Mexican", "Spanish", "Mediterranean", "Other Western", "Others",]; %>
           <% cuisineTypeEnum.forEach(ct=>{ %>
           <option value="<%=ct%>" <%=(newDiner.cuisineType===ct) ? 'selected':''%>>
             <%=ct%>

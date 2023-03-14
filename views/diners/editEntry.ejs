@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinerdex</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+        <nav>
+    <a href="/diners/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>NEW ENTRY </a>
+    <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES </a>
+  </nav>
+  <main>
+     <h1><%= title %></h1>
+     <h2><%= diner.name %></h2>
+     <form id="new-form" action="/diners/<%=id%>?_method=PUT" method="POST">
+      <label>
+        Name:
+        <input type="text" name="name" value="<%=diner.name%>"/>
+      </label>
+      <br/>
+      <label>
+        Establishment Type:
+        <select name="establishmentType" value="<%=diner.establishmentType%>">
+          <% establishmentTypeEnum = [
+        "Cafe",
+        "Hawker Stall",
+        "Foodcourt Stall",
+        "Regular Restaurant",
+        "Fine Dining Restaurant",
+        "Fastfood Restaurant",
+        "Bar/Pub",
+        "Casual Eatery",
+        "Takeaway Kiosk",
+        "Non-physical",
+          ] %>
+          <% establishmentTypeEnum.forEach((et) => { %>
+            <option value="<%=et%>" <%=(diner.establishmentType===et) ? "Selected" : "" %>>
+              <%=et%>
+            </option>
+          <% }) %>
+        </select>
+      </label>
+      <br/>
+      <label>
+        Cuisine Type:</label>
+        <select name="cuisineType" value="<%=diner.cuisineType%>">
+          <% cuisineTypeEnum=["Japanese", "Korean", "Italian", "French", "Malay", "Chinese", "Indian", "Thai", "Vietnamese", "American","Mexican", "Spanish", "Mediterranean", "Other Western", "Others",]; %>
+          <% cuisineTypeEnum.forEach(ct=>{ %>
+          <option value="<%=ct%>" <%=(diner.cuisineType===ct) ? 'selected':''%>>
+            <%=ct%>
+          </option>
+          <% }) %>
+        </select>
+        <br>
+      <label>
+        Halal:
+        <select name="halal" value="<%=diner.halal%>">
+          <% halalEnum = ["Unconfirmed", "Yes", "No"] %>
+          <% halalEnum.forEach(h=> { %>
+            <option value="<%=h%>" <%=(diner.halal===h) ? "selected" : "" %>>
+              <%=h%>
+            </option>
+          <% }) %>
+        </select>
+      </label>
+      <br/>
+      <label>
+        Pricing Level:</label>
+        <select name="pricingLevel" value="<%=diner.pricingLevel%>">
+          <% pricingLevelEnum=["Low", "Fairly Low", "Medium", "Fairly High", "High"]; %>
+          <% pricingLevelEnum.forEach(pl=>{ %>
+          <option value="<%=pl%>" <%=(diner.pricingLevel===pl) ? 'selected':''%>>
+            <%=pl%>
+          </option>
+          <% }) %>
+        </select>
+        <br/>
+      <label>
+        Region:</label>
+        <select name="region" value="<%=diner.region%>">
+          <% regionEnum=["Central", "East", "North East", "North", "West"]; %>
+          <% regionEnum.forEach(r=>{ %>
+          <option value="<%=r%>" <%=(diner.region===r) ? 'selected':''%>>
+            <%=r%>
+          </option>
+          <% }) %>
+        </select>
+        <br>
+        <label>Address: <input type="text" name="address" value="<%=diner.address%>"/></label>
+        <br>
+        <label>Contact Number: <input type="text" name="contactNo" value="<%=diner.contactNo%>"/></label>
+        <br>
+        <label>Operating Days: <input type="text" name="operatingDays" value="<%=diner.operatingDays%>"/></label>
+        <br>
+        <label>Operating Hours: <input type="text" name="operatingHours" value="<%=diner.operatingHours%>"/></label>
+        <br>
+        <button type="submit">UPDATE ENTRY</button>
+    <!-- <form action="/diners/<%= diner._id %>/edit" method="POST"><button type="submit">EDIT ENTRY</button>
+    </form> -->
+    </form>
+  </main>
+  </body>
+</html>

@@ -82,3 +82,19 @@ table td {
   padding: 10px;
   text-align: center;
 }
+
+#show-page {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
+
+#show-page div:nth-child(even) {
+  font-weight: bold;
+}
+
+/* h4 {
+  font-weight: normal;
+  display: inline;
+  margin-right: 1em;
+} */

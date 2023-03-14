@@ -28,8 +28,49 @@ const create = (req, res) => {
     });
 };
 
+const show = (req, res) => {
+  Diner.findById(req.params.id).then((diner) => {
+    const context = { title: "Diner Details", diner };
+    res.render("diners/show", context);
+  });
+};
+
+const deleteDiner = (req, res) => {
+  const { id } = req.params;
+  Diner.findByIdAndDelete(id)
+    .exec()
+    .then((diner) => {
+      console.log("deleted diner: ", diner._id);
+      res.redirect("/diners");
+    });
+};
+
+const editEntry = (req, res) => {
+  const { id } = req.params;
+  Diner.findById(id)
+    .exec()
+    .then((diner) => {
+      console.log("Edit: ", id);
+      const context = { title: "Edit Entry", id, diner };
+      res.render("diners/editEntry.ejs", context);
+    });
+};
+
+const update = (req, res) => {
+  const { id } = req.params;
+  Diner.findByIdAndUpdate(id, req.body, { new: true })
+    .exec()
+    .then((diner) => {
+      res.redirect(`/diners/${id}`);
+    });
+};
+
 module.exports = {
   index,
   new: newDiner,
   create,
+  show,
+  delete: deleteDiner,
+  editEntry,
+  update,
 };

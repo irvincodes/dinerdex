@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinerdex</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+        <nav>
+    <a href="/diners/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>NEW ENTRY </a>
+    <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES </a>
+  </nav>
+  <main>
+     <h1><%= title %></h1>
+     <h2><%= diner.name %></h2>
+     <section id="show-page">
+      <div>Establishment Type: </div>
+      <div><%= diner.establishmentType %></div>
+      <div>Cuisine Type: </div>
+      <div><%= diner.cuisineType %></div>
+      <div>Halal: </div>
+      <div><%= diner.halal %></div>
+      <div>Pricing Level: </div>
+      <div><%= diner.pricingLevel %></div>
+      <div>Region: </div>
+      <div><%= diner.region %></div>
+      <div>Address: </div>
+      <div><%= diner.address %></div>
+      <div>Contact Number: </div>
+      <div><%= diner.contactNo %></div>
+      <div>Operating Days: </div>
+      <div><%= diner.operatingDays %></div>
+      <div>Operating Hours: </div>
+      <div><%= diner.operatingHours %></div>
+      <div>Average Rating: </div>
+      <div></div>
+      <div>Number of Reviews: </div>
+    </section>
+    <div><h4>
+      <button onclick="location.href='https://www.example.com'">SEE REVIEWS</button><button onclick="location.href='https://www.example.com'">ADD REVIEW</button><button onclick="location.href='/diners/<%= diner._id %>/edit'"> EDIT ENTRY </button>
+      <!-- <a href="/diners/<%= diner._id %>/edit">SEE REVIEWS</a></h4><h4><a href="/diners/<%= diner._id %>/edit">ADD NEW REVIEW</a></h4><h4><a href="/diners/<%= diner._id %>/edit">EDIT ENTRY</a> -->
+      </h4>
+      <div>
+
+    <!-- <form action="/diners/<%= diner._id %>" method="POST"><button type="submit">EDIT ENTRY</button>
+    </form> -->
+  </main>
+  </body>
+</html>
