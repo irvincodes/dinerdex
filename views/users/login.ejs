@@ -9,28 +9,23 @@
   </head>
   <body>
         <nav>
-          <h1>WELCOME TO DINERDEX</h1>
     <a href="/users/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>REGISTER </a>
     <!-- <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES </a> -->
   </nav>
   <main>
-     <h1>USER LOGIN</h1>
-     <!-- <h1><%= title %></h1> -->
-      <table>
-        <thead>
-  
-        </thead>
-        <tbody>
+     <h1><%= title %></h1>
 
-      
-              <form action="/diners/<%= d._id %>/?_method=DELETE" method="POST">
-                <button type="submit">DELETE</button>
-              </form>
-              </td>
+     <form action="/users/login" method="post">
+  <fieldset>
+    <legend>User Login</legend>
+    <label>User ID: <input name="userid" /></label>
+    <br />
+    <label>Password: <input name="password" /></label>
+    <input type="hidden" value="secret" name="what" />
+    <button>Login</button>
+  </fieldset>
+</form>
 
-
-        </tbody>
-      </table>
   </main>
   </body>
 </html>
