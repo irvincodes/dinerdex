@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinerdex</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <nav>
+    <a href="/diners/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>NEW ENTRY</a>
+    <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES</a>
+  </nav>
+  <main>
+    <h1><%= title %></h1>
+    <h2><%= diner.name %></h2>
+    <form id="new-form" action= "/diners/<%= diner._id %>/reviews" method="POST">
+      <label>
+        Rating: </label>
+        <select name="rating">
+          <% ratingEnum=[1, 2, 3, 4, 5]; %>
+          <% ratingEnum.forEach(r =>{ %>
+          <option value="<%=r%>" <%=(newReview.rating===r) ? 'selected':''%>>
+            <%=r%>
+          </option>
+          <% }) %>
+        </select>
+        <br>
+        <label>
+        Date Visited:
+        <input type="date"  name="dateVisited" />
+      </label>
+      <br/>
+      <label>
+        Number of People: 
+        <input type="text" name="paxNo"/>
+      </label>
+      <br/>
+       <label>
+        Total Bill ($): 
+        <input type="number" min="0.00" step="0.01" name="billTotal"/>
+      </label>
+      <br/>
+      <label>
+        Comments: 
+        <input type="text" name="comments"/>
+      </label>
+      <div>
+        <button type="submit">ADD REVIEW</button>
+        </div>
+
+
+
+    </form>
+
+
+
+  </main>
+  </body>
+</html>

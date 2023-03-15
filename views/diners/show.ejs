@@ -35,11 +35,13 @@
       <div>Operating Hours: </div>
       <div><%= diner.operatingHours %></div>
       <div>Average Rating: </div>
-      <div></div>
+      <div><%= averageRating.toFixed(2) %></div>
       <div>Number of Reviews: </div>
+      <div><%= reviewsSum %></div>
     </section>
     <div><h4>
-      <button onclick="location.href='https://www.example.com'">SEE REVIEWS</button><button onclick="location.href='https://www.example.com'">ADD REVIEW</button><button onclick="location.href='/diners/<%= diner._id %>/edit'"> EDIT ENTRY </button>
+      <!-- https://stackoverflow.com/questions/2906582/how-do-i-create-an-html-button-that-acts-like-a-link -->
+      <button onclick="location.href='/diners/<%= diner._id %>/reviews'">SEE REVIEWS</button><button onclick="location.href='/diners/<%= diner._id %>/reviews/new'">ADD REVIEW</button><button onclick="location.href='/diners/<%= diner._id %>/edit'"> EDIT ENTRY </button>
       <!-- <a href="/diners/<%= diner._id %>/edit">SEE REVIEWS</a></h4><h4><a href="/diners/<%= diner._id %>/edit">ADD NEW REVIEW</a></h4><h4><a href="/diners/<%= diner._id %>/edit">EDIT ENTRY</a> -->
       </h4>
       <div>

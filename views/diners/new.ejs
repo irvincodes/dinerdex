@@ -23,16 +23,21 @@
       <label>
         Establishment Type:
         <select name="establishmentType">
-          <option value="Cafe">Cafe</option>
-          <option value="Hawker Stall">Hawker Stall</option>
-          <option value="Foodcourt Stall">Foodcourt Stall</option>
-          <option value="Regular Restaurant">Regular Restaurant</option>
-          <option value="Fine Dining Restaurant">Fine Dining Restaurant</option>
-          <option value="Fastfood Restaurant">Fastfood Restaurant</option>
-          <option value="Bar/Pub">Bar/Pub</option>
-          <option value="Casual Eatery">Casual Eatery</option>
-          <option value="Takeaway Kiosk">Takeaway Kiosk</option>
-          <option value="Non-physical">Non-physical</option>
+          <% establishmentTypeEnum = [
+        "Cafe",
+        "Hawker Stall",
+        "Foodcourt Stall",
+        "Regular Restaurant",
+        "Fine Dining Restaurant",
+        "Fastfood Restaurant",
+        "Bar/Pub",
+        "Casual Eatery",
+        "Takeaway Kiosk",
+        "Non-physical",
+          ] %>
+          <% establishmentTypeEnum.forEach((et) => { %>
+            <option value="<%=et%>"><%=et%></option>
+          <% }) %>
         </select>
       </label>
       <br/>

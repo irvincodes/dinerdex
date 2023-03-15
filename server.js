@@ -11,6 +11,8 @@ require("./config/database");
 
 var indexRouter = require("./routes/index");
 var dinersRouter = require("./routes/diners");
+const reviewsRouter = require("./routes/reviews");
+const usersRouter = require("./routes/users");
 
 var app = express();
 
@@ -27,6 +29,8 @@ app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
 app.use("/diners", dinersRouter);
+app.use("/", reviewsRouter);
+app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

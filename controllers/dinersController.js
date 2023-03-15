@@ -30,7 +30,18 @@ const create = (req, res) => {
 
 const show = (req, res) => {
   Diner.findById(req.params.id).then((diner) => {
-    const context = { title: "Diner Details", diner };
+    const reviews = diner.reviews;
+    const reviewsSum = reviews.length;
+    const ratingSum = reviews
+      .map((r) => r.rating)
+      .reduce((acc, val) => acc + val, 0);
+    const averageRating = ratingSum / reviews.length;
+    const context = {
+      title: "Diner Details",
+      diner,
+      averageRating,
+      reviewsSum,
+    };
     res.render("diners/show", context);
   });
 };

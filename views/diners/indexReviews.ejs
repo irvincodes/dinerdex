@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinerdex</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+        <nav>
+    <a href="/diners/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>NEW ENTRY </a>
+    <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES </a>
+  </nav>
+  <main>
+     <h1><%= title %></h1>
+     <h2><%= diner.name %></h2>
+     <section id="show-page">
+         <% const reviews = diner.reviews %>
+         <% let reviewNum = 1 %>
+          <% reviews.forEach((r) => { %>
+        <!-- <thead> -->
+          <h4>Review: <%= reviewNum %></h4>
+          <div></div>
+            <div>Rating: </div>
+            <div><%= r.rating %></div>
+            <div>Date Visited: </div>
+            <div><%= r.dateVisited %></div>
+            <div>Number of Diners: </div>
+            <div><%= r.paxNo %></div>
+            <div>Total Bill($): </div>
+            <div><%= r.billTotal.toFixed(2) %></div>
+            <div>Comments: </div>
+            <div><%= r.comments %></div>
+        <!-- </thead> -->
+        <% reviewNum++ %>
+          <% }) %>
+        </section>
+        <button onclick="location.href='/diners/<%= diner._id %>'">BACK</button>
+  </main>
+  </body>
+</html>

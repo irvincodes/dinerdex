@@ -12,7 +12,7 @@ const reviewSchema = new Schema({
   dateVisited: {
     type: Date,
   },
-  dinerNo: {
+  paxNo: {
     type: Number,
     default: 2,
     required: true,
