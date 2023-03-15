@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinerdex</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+        <nav>
+    <a href="/users/login" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>LOGIN PAGE </a>
+    <!-- <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES </a> -->
+  </nav>
+  <main>
+     <h1><%= title %></h1>
+
+     <form action="/users" method="post">
+    <label>Full Name: <input name="fullName" /></label>
+    <br />
+    <label>User ID: <input name="userId" /></label>
+    <br />
+    <label>Password: <input name="password" /></label>
+    <input type="hidden" value="secret" name="what" />
+    <button>Register</button>
+</form>
+
+  </main>
+  </body>
+</html>

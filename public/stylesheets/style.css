@@ -98,3 +98,8 @@ table td {
   display: inline;
   margin-right: 1em;
 } */
+
+#login-msg {
+  color: red;
+  margin-top: 1rem;
+}
