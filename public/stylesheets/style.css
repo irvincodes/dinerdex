@@ -10,6 +10,7 @@ a {
 * {
   box-sizing: border-box;
   font-family: Helvetica;
+  font-family: "PT Sans", sans-serif;
   color: #000000;
 }
 
@@ -25,7 +26,8 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #ff0000;
+  /* background-color: #ff0000; */
+  background-color: #c12026;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -44,12 +46,73 @@ body > main {
   flex-direction: column;
   align-items: center;
   background-color: #f5f5f5;
+  /* background-image: url("https://i.imgur.com/OTM4N6t.jpg"); */
   padding: 20px;
   overflow-y: scroll;
 }
 
+#login-page {
+  background-image: url("https://i.imgur.com/OTM4N6t.jpg");
+}
+
+#new-form {
+  padding: 1%;
+  width: 30%;
+  background-color: #ee9797;
+  /* display: grid; */
+  /* grid-template-columns: 2fr 3fr 1fr; */
+  /* grid-gap: 1rem; */
+  border-radius: 1rem;
+}
+
+#new-form label {
+  display: inline-block;
+}
+
+#new-form input,
+#new-form select {
+  width: 100%;
+  padding: 3px;
+  /* margin-bottom: 1px; */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-button {
+  text-align: right;
+}
+
+/* #new-form > div > label {
+  grid-column: 1;
+}
+
+#new-form > div > input,
+#new-form > div > select {
+  grid-column: 2;
+}
+
+#new-form > div > button {
+  grid-column: 3;
+} */
+
+#entry-list tr {
+  border: 1px solid #000000; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  /* font-size: 18px; Increase the font-size */
+  color: black; /* Add a black text color */
+  /* display: block; Make it into a block element to fill the whole list */
+}
+
+/* .flex-row {
+  flex-direction: row;
+} */
+
 body > main h1:first-child {
-  margin-bottom: 50px;
+  margin-bottom: 2rem;
 }
 
 nav > a {
@@ -61,7 +124,7 @@ nav > a {
 
 nav > a:hover:not(.active) {
   color: white;
-  background-color: #cc0000;
+  background-color: #e32e2e;
 }
 
 nav > a.active {
@@ -71,11 +134,24 @@ nav > a.active {
 
 table {
   font-size: 20px;
+  table-layout: fixed;
+  width: 70%;
 }
 
 table thead th {
+  width: 10%;
   padding: 5px;
-  border-bottom: 2px solid #cc0000;
+  border-bottom: 2px solid #c12026;
+}
+
+table tr th:nth-child(6) {
+  width: 5%;
+  border-bottom: none;
+}
+
+table tr th:nth-child(7) {
+  width: 5%;
+  border-bottom: none;
 }
 
 table td {
@@ -100,6 +176,29 @@ table td {
 } */
 
 #login-msg {
-  color: red;
+  color: white;
   margin-top: 1rem;
+}
+
+#searchbar {
+  /* width: 95%; Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 20px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 20px; /* Add some space below the input */
+}
+
+#new-form > div {
+  margin-bottom: 0.00000000000001rem;
+}
+
+#login-form {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f5f5f5;
+  box-shadow: 4px 8px 4px #000000;
+}
+
+#welcome-header {
+  color: white;
 }

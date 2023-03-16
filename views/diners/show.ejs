@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dinerdex</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
         <nav>
@@ -36,7 +39,7 @@
       <div>Operating Hours: </div>
       <div><%= diner.operatingHours %></div>
       <div>Average Rating: </div>
-      <div><%= averageRating.toFixed(2) %></div>
+      <div><%= averageRating() %></div>
       <div>Number of Reviews: </div>
       <div><%= reviewsSum %></div>
     </section>

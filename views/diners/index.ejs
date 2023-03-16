@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dinerdex</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b2d512424c.js" crossorigin="anonymous"></script>
+    <!-- https://www.w3schools.com/howto/howto_js_filter_lists.asp -->
+    <script> 
+    const search = () => {
+    const searchbox = document.getElementById("searchbar").value.toUpperCase();
+    const entries = document.getElementById("entry-list");
+    // const entry = document.querySelectorAll(".entry");
+    const entry = entries.getElementsByClassName("entry");
+
+    for (let i = 0; i < entry.length; i++) {
+      let match = entry[i].getElementsByClassName("entry-name")[0];
+      let txtValue = match.textContent || match.innerText;
+
+      if (txtValue.toUpperCase().indexOf(searchbox) > -1) {
+        entry[i].style.display = "";
+      } else {
+        entry[i].style.display = "none";
+      }
+    }
+  };
+  </script>
   </head>
   <body>
         <nav>
@@ -15,6 +39,12 @@
   </nav>
   <main>
      <h1><%= title %></h1>
+     <!-- <div class="search-wrapper"></div> -->
+     <form class="flex-row">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchbar" onkeyup="search()" placeholder="Search for diner..">
+     </form>
+     
       <table>
         <thead>
           <tr>
@@ -23,12 +53,14 @@
             <th>Cuisine Type</th>
             <th>Region</th>
             <th>Pricing Level</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="entry-list">
           <% diners.forEach((d) => { %>
-            <tr>
-              <td><%= d.name %></td>
+            <tr class="entry">
+              <td class="entry-name"><%= d.name %></td>
               <td><%= d.establishmentType %></td>
               <td><%= d.cuisineType %></td>
               <td><%= d.region %></td>

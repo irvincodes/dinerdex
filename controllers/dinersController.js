@@ -35,7 +35,14 @@ const show = (req, res) => {
     const ratingSum = reviews
       .map((r) => r.rating)
       .reduce((acc, val) => acc + val, 0);
-    const averageRating = ratingSum / reviews.length;
+    const averageRating = () => {
+      if (reviewsSum === 0) {
+        return "N.A";
+      } else {
+        const avgRating = ratingSum / reviews.length;
+        return avgRating.toFixed(2);
+      }
+    };
     const context = {
       title: "Diner Details",
       diner,

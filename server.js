@@ -5,15 +5,16 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const methodOverride = require("method-override");
 const session = require("express-session");
+
+require("dotenv").config();
+
+require("./config/database");
+
 const MongoStore = require("connect-mongo");
 const sessionStore = MongoStore.create({
   mongoUrl: process.env.DATABASE_URL,
   collectionName: "session",
 });
-
-require("dotenv").config();
-
-require("./config/database");
 
 var indexRouter = require("./routes/index");
 var dinersRouter = require("./routes/diners");
@@ -32,7 +33,7 @@ app.use(
     secret: "secret-code",
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 600000 },
+    cookie: { maxAge: 6000000 },
     store: sessionStore,
   })
 );
