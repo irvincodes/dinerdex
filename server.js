@@ -5,6 +5,11 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const methodOverride = require("method-override");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const sessionStore = MongoStore.create({
+  mongoURL: process.env.DATABASE_URL,
+  collectionName: "session",
+});
 
 require("dotenv").config();
 
@@ -26,7 +31,9 @@ app.use(
   session({
     secret: "secret-code",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    cookie: { maxAge: 600000 },
+    store: sessionStore,
   })
 );
 
