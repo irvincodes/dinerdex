@@ -5,7 +5,7 @@ const saltRounds = 10;
 // const plainPassword =
 
 const index = async (req, res) => {
-  const context = { title: "WELCOME TO DINERDEX", msg: "1st message" };
+  const context = { title: "WELCOME TO DINERDEX", msg: "" };
   res.render("users/login", context);
 };
 
@@ -81,7 +81,7 @@ const login = async (req, res) => {
 const logout = (req, res) => {
   req.session.destroy();
   res.clearCookie("sessionId");
-  const context = { title: "Smell You Later!" };
+  const context = { title: "Successfully Logged Out." };
   res.render("users/logout", context);
 };
 

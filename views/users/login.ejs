@@ -11,19 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
-        <nav>
+        <nav id="nav-login">
+          <a href="/users/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>FORGOT PASSWORD </a>
     <a href="/users/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>REGISTER </a>
   </nav>
   <main id="login-page">
-    
-     <h1 id="welcome-header"><%= title %></h1>
+    <img src="https://i.imgur.com/hKzdZ55.png" alt="logo-dinerdex" id="img-login-logo">
+     <!-- <h1 id="welcome-header"><%= title %></h1> -->
 
      <form action="/users/login" method="post" id="login-form">
   <fieldset>
     <legend>User Login</legend>
-    <label>User ID: <input name="userId" /></label>
+    <label>User ID: <input name="userId" minlength="5" maxlength="20" required/></label>
     <br />
-    <label>Password: <input name="password" /></label>
+    <label>Password: <input name="password" minlength="8" type="password" required/></label>
     <input type="hidden" value="secret" name="what" />
     <button>Login</button>
   </fieldset>

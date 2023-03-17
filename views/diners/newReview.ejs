@@ -12,6 +12,7 @@
   </head>
   <body>
     <nav>
+      <img src="https://i.imgur.com/hKzdZ55.png" alt="logo-dinerdex" id="img-logo">
     <a href="/diners/new" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>NEW ENTRY</a>
     <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES</a>
     <a href="/users/logout" >LOG OUT </a>
@@ -20,6 +21,13 @@
     <h1><%= title %></h1>
     <h2><%= diner.name %></h2>
     <form id="new-form" action= "/diners/<%= diner._id %>/reviews" method="POST">
+      <div>
+      <label>
+        Reviewer Name: </label>
+        <input type="text" name="reviewerName" minlength="3" required/>
+      </div>
+      <br/>
+      <div>
       <label>
         Rating: </label>
         <select name="rating">
@@ -30,27 +38,33 @@
           </option>
           <% }) %>
         </select>
+        </div>
         <br>
+        <div>
         <label>
-        Date Visited:
-        <input type="date"  name="dateVisited" />
-      </label>
+        Date Visited: </label>
+        <input type="date"  name="dateVisited" required/>
+      </div>
       <br/>
-      <label>
-        Number of People: 
-        <input type="text" name="paxNo"/>
-      </label>
-      <br/>
-       <label>
-        Total Bill ($): 
-        <input type="number" min="0.00" step="0.01" name="billTotal"/>
-      </label>
-      <br/>
-      <label>
-        Comments: 
-        <input type="text" name="comments"/>
-      </label>
       <div>
+      <label>
+        Number of People: </label>
+        <input type="text" name="paxNo"/>
+      </div>
+      <br/>
+      <div>
+       <label>
+        Total Bill ($): </label>
+        <input type="number" min="0.00" step="0.01" name="billTotal"/>
+      </div>
+      <br/>
+      <div>
+      <label>
+        Comments: </label>
+        <textarea type="text" name="comments" id="input-comments"; class="wrap-it" ></textarea>
+      </div>
+      <br>
+      <div class="form-button">
         <button type="submit">ADD REVIEW</button>
         </div>
 

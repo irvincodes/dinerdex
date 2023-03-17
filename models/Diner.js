@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
+  reviewerName: {
+    type: String,
+    required: true,
+  },
   rating: {
     type: Number,
     enum: [1, 2, 3, 4, 5],
@@ -62,10 +66,12 @@ const dinerSchema = new Schema(
         "Indian",
         "Thai",
         "Vietnamese",
+        "Australian",
         "American",
         "Mexican",
         "Spanish",
         "Mediterranean",
+        "Other Asian",
         "Other Western",
         "Others",
       ],

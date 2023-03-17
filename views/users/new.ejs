@@ -12,21 +12,27 @@
   </head>
   <body>
         <nav>
+      <img src="https://i.imgur.com/hKzdZ55.png" alt="logo-dinerdex" id="img-logo">
     <a href="/users/login" <%- title === 'NEW ENTRY' ? 'class="active"' : '' %>>LOGIN PAGE </a>
     <!-- <a href="/diners" <%- title === 'All DEX ENTRIES' ? 'class="active"' : '' %>>ALL ENTRIES </a> -->
   </nav>
   <main>
      <h1><%= title %></h1>
 
-     <form action="/users" method="post">
-    <label>Full Name: <input name="fullName" /></label>
+     <form action="/users" method="post" id="register-form">
+    <label>Full Name: <input name="fullName" minlength="4"  required/></label>
     <br />
-    <label>User ID: <input name="userId" /></label>
+    <label>User ID: <input name="userId" minlength="5" maxlength="20" required/></label>
     <br />
-    <label>Password: <input name="password" /></label>
-    <input type="hidden" value="secret" name="what" />
+    <label>Password: <input name="password" minlength="8" type="password" required/></label>
+    <br />
+    <label>E-mail: <input name="email" minlength="15" type="email" required/></label>
+  
+    
     <button>Register</button>
 </form>
+<img src="https://i.imgur.com/SqpomWT.jpg" alt="new-user" id="img-new-user">
+
 
   </main>
   </body>
