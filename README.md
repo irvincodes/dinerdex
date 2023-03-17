@@ -11,12 +11,12 @@ Explore the app at this Live URL:
 
 # User Story
 
-As a user, I want to be able to log a new food place into the app.
-As a user, I want to be able to edit details regarding the food place.
-As a user, I want to be able to add reviews to a food place logged by me or my community.
-As a user, I want to be able to add and view the important details regarding a food place.
-As a user, I want to be able to view a page with all the reviews for a specific food place.
-As a user, I want to be able to search and filter for the food place on the main page.
+- As a user, I want to be able to log a new food place into the app.
+- As a user, I want to be able to edit details regarding the food place.
+- As a user, I want to be able to add reviews to a food place logged by me or my community.
+- As a user, I want to be able to add and view the important details regarding a food place.
+- As a user, I want to be able to view a page with all the reviews for a specific food place.
+- As a user, I want to be able to search and filter for the food place on the main page.
 
 _Disclaimer_ - I decided to keep this section short, but there are many more things the user would want to do with the app, some have been implemented while others are for the future..
 
