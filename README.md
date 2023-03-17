@@ -7,7 +7,7 @@ Introducing our community food review platform Dinerdex, a space for just your f
 Imagine being able to quickly access reviews from people you trust and relate to, no more fretting about trying to remember all the fantastic food places your friends have been recommending to you.
 
 Explore the app at this Live URL:
-[ Dinerdex ]()
+[ Dinerdex ](https://tasty-rose-rugby-shirt.cyclic.app/users/login)
 
 # User Story
 
